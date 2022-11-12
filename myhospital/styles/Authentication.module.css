@@ -1,0 +1,44 @@
+
+.authPage {
+    padding: 30px;
+}
+.authPage h1{
+    font-size: 1rem;
+    
+}
+.authPage > p:nth-child(2) {
+    font-size: 1.7rem;
+}
+.authForm {
+    background: #D5C683;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 30px;
+}
+.inputs{
+    border-radius: 25px;
+    border: none;
+    padding: 10px 0;
+    margin: 20px 0;
+    outline: none;
+}
+
+.btn {
+    background: black; 
+    color: white;
+    border-radius: 25px;
+    padding: 10px 30px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+.changePage {
+    text-align: center;
+}
+.changeAuthPage{
+    color: white;
+}
+.changeAuthPage:hover{
+    cursor:pointer;
+}
