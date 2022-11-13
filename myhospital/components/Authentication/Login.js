@@ -1,4 +1,4 @@
-
+import Head from "next/head";
 import { useState } from "react"
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase'
@@ -17,6 +17,7 @@ export default function Login({ setSignUpPage }){
     
         return (
         <div className={styles.authPage}>
+            
 
             <h1>MyHospital.</h1>
             <p>An insightful visit to your favorite Health Center.</p>

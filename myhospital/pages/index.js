@@ -12,6 +12,19 @@ export default function Home() {
 
       <Navigation />
 
+      <div style={{position:"relative", width:"100vw", height:100, opacity:.7}}>
+        <Image src="/images/building.jpg" fill alt="building" />
+      </div>
+
+      <h3>Departments</h3>
+
+      <h3>Overall Activity</h3>
+      
+      <h3>Transmissibility</h3>
+
+
+      
+
     </div>
   )
 }

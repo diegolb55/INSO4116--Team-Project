@@ -9,13 +9,23 @@
     justify-content: center;
     align-items: center;
 
-    position: relative;
+    position: absolute;
+    z-index: 2;
 
 }
 .menubox {
     position: absolute;
-    top: 20px;
-    font-size: 1.5rem;
+    top: 30px;
+    font-size: 1.7rem;
+    z-index: 2;
+
+    background: white;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .navlinks{
     color: white;
