@@ -14,7 +14,7 @@ export default function Navigation(){
             right:0,
         },
         closed:{
-            right:"-80%",
+            right:"-80vw",
         },
         menuopen:{
             left: 20
