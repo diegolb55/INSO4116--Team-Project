@@ -3,6 +3,7 @@ import Head from 'next/head'
 import {auth, db} from "../firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import Authentication from "../components/Authentication/Authentication"
+import Loading from '../components/Loading'
 
 function MyApp({ Component, pageProps }) {
 
@@ -11,7 +12,7 @@ function MyApp({ Component, pageProps }) {
 
   if(!user){
     if(loading){
-      return <div><h1>Loading Screen</h1></div>
+      return <Loading/>
     }
     return <Authentication />
   }
