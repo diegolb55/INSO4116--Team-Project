@@ -11,16 +11,16 @@ export default function Navigation(){
 
     const variants = {
         open: {
-            right:"-20%",
+            right:0,
         },
         closed:{
-            right:"-100%",
+            right:"-80%",
         },
         menuopen:{
             left: 20
         },
         menuclosed:{
-            left: -40
+            left: -60
         }
     }
 
