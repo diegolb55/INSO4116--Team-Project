@@ -20,24 +20,25 @@ export default function Home() {
       <div className={styles.infoSection}>
         <h3>Departments</h3>
         <ul className={styles.deptLinks}>
-          <li>
-            <Link href="">Emergency</Link>
-          </li>
-          <li>
-            <Link href="">Pulmonology</Link>
-          </li>
-          <li>
-            <Link href="">Radiology</Link>
-          </li>
-          <li>
-            <Link href="">Emergency</Link>
-          </li>
-          <li>
-            <Link href="">Pulmonology</Link>
-          </li>
-          <li>
-            <Link href="">Radiology</Link>
-          </li>
+          <Link href="./" className={styles.homelink}>
+            <li>Emergency</li>
+          </Link>
+          <Link href="./Radiology" className={styles.homelink}>
+            <li>Radiology</li>
+          </Link>
+          <Link href="./" className={styles.homelink}>
+            <li>Pulmonology</li>
+          </Link>
+          <Link href="./" className={styles.homelink}>
+            <li>Cardiology</li>
+          </Link>
+          <Link href="./" className={styles.homelink}>
+            <li>--</li>
+          </Link>
+          <Link href="./" className={styles.homelink}>
+            <li>--</li>
+          </Link>
+          
         </ul>
       </div>
       <div className={styles.infoSection}>

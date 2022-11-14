@@ -4,6 +4,7 @@ import {AiOutlineMenuFold, AiOutlineMenuUnfold} from "react-icons/ai"
 import styles from "../styles/Navigation.module.css"
 import { signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
+import Link from "next/link";
 
 export default function Navigation(){
 
@@ -50,12 +51,22 @@ export default function Navigation(){
                     <AiOutlineMenuUnfold onClick={()=>setOpenNav(true)}/>
                 </motion.div>
             }
-            <div className={styles.navlinks}>
-                <p>Departments</p>
-                <p>Activity</p>
-                <p>Transmissibility</p>
+            <ul className={styles.navlinks}>
+                <li>
+                    <Link href="./">Home</Link>
+                </li>
+                <li>
+                    <Link href="./Radiology">Departments</Link>
+                </li>
+                <li>
+                    <Link href="./">Activity</Link>
+                </li>
+                <li>
+                    <Link href="./">Transmissibility</Link>
+                </li>
+                
                 <button onClick={ () => signOut(auth)}>SignOut</button>
-            </div>
+            </ul>
 
         </motion.div>
     )
