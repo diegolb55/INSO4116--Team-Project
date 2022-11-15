@@ -1,65 +1,110 @@
 import { db, auth } from "../firebase";
-import { useDocumentData, useCollectionData } from "react-firebase-hooks/firestore"
-import { orderBy, doc, collection, query, addDoc, serverTimestamp } from "firebase/firestore"
+import { useDocumentData, useCollectionData, useCollection } from "react-firebase-hooks/firestore"
+import { orderBy, doc, collection, 
+    query, addDoc, serverTimestamp,
+    deleteDoc, setDoc} 
+from "firebase/firestore"
 
 export class Department {
     
-    constructor(name, deptId){
+    constructor(name, user){
         this.departmentName = name;
+        this.user = user;
         
-        this.waitingCollection = collection(db, `departments/${deptId}/waitingline`), orderBy("position", "asc");
-        this.q = query(this.waitingCollection);
-        this.w = useCollectionData(this.q)[0];
+        // account ref
+        this.account = getAccountWithId(this.user.uid);
+
+        this.waitingLine = new WaitingLine(name, this.account);
     }
     
 
     name(){
         return this.departmentName;
     }
-    logwaitinglist(){
-        
-        console.log(this.w)
-    }
-    async addTurn(){
-        await addDoc(this.waitingCollection, {
-            patientName: "",
-            patientUid:"",
-            patientPhone:"",
-            position: this.length
-
-        })
-        
-    }
-    // peek();
-    // backtrackFrom(index);
-    // push();
-
-
-    get length(){
-        return this.w?.length;
-    }
+ 
+    
 
     
 }
 
+class WaitingLine {
+    constructor(departmentName, userAcc){
+        this.departmentId = getDepartmentId(departmentName);
+        this.account = userAcc;
 
+        // wcd = waitinglist collection data reference
+        let q = query(collection(db, `departments/${this.departmentId}/waitingline`), orderBy("position", "asc"), );
+        this.wcd = useCollectionData(q)[0];
 
-class Turn {
-    constructor() {
-        patientName, patientUid,
-        position, expDate
+        // wsd = waiting list collection snapshot-data reference
+        let uwaitingCollection = collection(db, `departments/${this.departmentId}/waitingline`);
+        let [snap] = useCollection(uwaitingCollection);
+        this.s = snap;
+        this.wsd = this.s?.docs?.map(doc => ({ id: doc.id, ...doc.data() }))
+
+        
+
     }
 
-    get pname(){
-        return this.patientName;
+  
+    hasTurn(){
+        return this.wsd?.find(({ id }) => id === this.account.id );
     }
-    get puid(){
-        return this.patientUid;
+    get position(){
+        return this.hasTurn()?.position;
     }
-    get pposition(){
-        return this.position;
+    get patientName(){
+        return this.hasTurn()?.patientName;
     }
-    get pexpdate(){
-        return this.expDate;
+    
+    async addPatient(){
+        
+        try{
+            await setDoc(doc(db,`departments/${this.departmentId}/waitingline`, this.account.id), {
+                patientName: this.account.name,
+                patientPhone: this.account.phone,
+                position: this.length + 1
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+        
     }
+    async deletePatient(){
+        await deleteDoc(doc(db,`departments/${this.departmentId}/waitingline`, this.account?.id));
+    }
+    get length(){
+        return this.wcd?.length;
+    }
+    // updatePositions()
+
+    printId(){
+        console.log(this.departmentId)
+    }
+
 }
+
+
+// utitlity methods
+
+
+const getDepartmentId = (dName) => {
+    // department collection snapshot-data reference
+    let[ snapshot ] = useCollection(collection(db,"departments"));
+    let departments = snapshot?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+
+    let id = departments?.find(({ departmentName }) => departmentName===dName ).id
+    
+    return id;
+}
+const getAccountWithId = (uid) => {
+    // users collection snapshot-data reference
+    let[ usnapshot ] = useCollection(collection(db,"users"));
+    let allusers = usnapshot?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+
+    let acc = allusers?.find(({ id }) => id === uid )
+    
+    return acc;
+}
+
