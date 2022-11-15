@@ -10,7 +10,6 @@ export default function Radiology({user}){
     const radiologyDept = new Department("Radiology", user); 
     const [isVROpen, setIsVROpen] = useState(false);
 
-
     return (
         <div className={styles.rdeptContainer}>
             <Navigation/>

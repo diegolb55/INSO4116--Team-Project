@@ -62,7 +62,6 @@
 }
 
 .circle {
-    background: #525744;
     height: 30vw;
     width: 30vw;
     border-radius: 100%;
@@ -74,12 +73,28 @@
     color: white;
     font-size: 3rem;
 }
-.vrinfo > button {
+.circle1 {
     background: #9CA683;
+    
+}
+.circle2 {
+    background: #525744;
 
+
+}
+
+.btn {
     color: white;
     padding: 20px 30px;
     border-radius: 50px;
     border: none;
+}
+.btn1 {
+    background: #525744;
+
+}
+.btn2 {
+    background: #9CA683;  
+
     align-self: flex-end;
 }
