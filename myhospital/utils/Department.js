@@ -2,7 +2,9 @@ import { db, auth } from "../firebase";
 import { useDocumentData, useCollectionData, useCollection } from "react-firebase-hooks/firestore"
 import { orderBy, doc, collection, 
     query, addDoc, serverTimestamp,
-    deleteDoc, setDoc} 
+    deleteDoc, setDoc, runTransaction,
+    updateDoc
+} 
 from "firebase/firestore"
 
 export class Department {
@@ -11,7 +13,7 @@ export class Department {
         this.departmentName = name;
         this.user = user;
         
-        // account ref
+        // user account snapshot
         this.account = getAccountWithId(this.user.uid);
 
         this.waitingLine = new WaitingLine(name, this.account);
@@ -33,7 +35,7 @@ class WaitingLine {
         this.account = userAcc;
 
         // wcd = waitinglist collection data reference
-        let q = query(collection(db, `departments/${this.departmentId}/waitingline`), orderBy("position", "asc"), );
+        let q = query(collection(db, `departments/${this.departmentId}/waitingline`), orderBy("position", "asc") );
         this.wcd = useCollectionData(q)[0];
 
         // wsd = waiting list collection snapshot-data reference
@@ -44,18 +46,30 @@ class WaitingLine {
 
         
 
+        
+
     }
 
-  
+    printId(){
+        console.log(this.departmentId)
+    }
     hasTurn(){
         return this.wsd?.find(({ id }) => id === this.account.id );
     }
-    get position(){
-        return this.hasTurn()?.position;
+    async sortPositions(){
+        let sortedWSD = this.wsd.sort((a,b) => a.position - b.position);
+        let docref;
+
+        for (let i=0; i < this.length; i++){
+            docref = doc(db, `departments/${this.departmentId}/waitingline`, sortedWSD[i].id )
+            await updateDoc(docref, {
+                position: i+1
+            });
+        }
+        
     }
-    get patientName(){
-        return this.hasTurn()?.patientName;
-    }
+
+    
     
     async addPatient(){
         
@@ -77,27 +91,30 @@ class WaitingLine {
     get length(){
         return this.wcd?.length;
     }
-    // updatePositions()
-
-    printId(){
-        console.log(this.departmentId)
+    get position(){
+        return this.hasTurn()?.position;
     }
+    get patientName(){
+        return this.hasTurn()?.patientName;
+    }
+    
+    
 
 }
 
 
-// utitlity methods
-
+/** Utility functions */
 
 const getDepartmentId = (dName) => {
     // department collection snapshot-data reference
-    let[ snapshot ] = useCollection(collection(db,"departments"));
+    let [ snapshot ] = useCollection(collection(db,"departments"));
     let departments = snapshot?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
 
     let id = departments?.find(({ departmentName }) => departmentName===dName ).id
     
     return id;
 }
+
 const getAccountWithId = (uid) => {
     // users collection snapshot-data reference
     let[ usnapshot ] = useCollection(collection(db,"users"));

@@ -28,10 +28,12 @@ export default function VirtualReception({isVROpen, setIsVROpen, line}){
                     </div>
                     <div className={styles.vrinfo}>
                         <p>Number of patients currently in queue</p>
-                        <div className={styles.circle}>
+                        <div className={`${styles.circle} ${styles.circle1}`}>
                             <p>{ line.length }</p>
                         </div>
-                        <button onClick={() => line.addPatient()}>take turn!</button>
+                        <button
+                            className={`${styles.btn} ${styles.btn1}`} 
+                            onClick={() => line.addPatient()}>take turn!</button>
                     </div>
 
                 </motion.div>
@@ -58,12 +60,14 @@ export default function VirtualReception({isVROpen, setIsVROpen, line}){
                         <div className={styles.textbox}>
                             <h3>Hi patient { line?.patientName }</h3>
                             <p>Thank you for waiting!</p>
-                            <p>Your Position in our queue is:</p>
+                            <p>Your position in our queue is:</p>
                         </div>
-                        <div className={styles.circle}>
+                        <div className={`${styles.circle} ${styles.circle2}`}>
                             <p>{ line.position }</p>
                         </div>
-                        <button onClick={() => line.deletePatient()}>leave queue!</button>
+                        <button 
+                            className={`${styles.btn} ${styles.btn2}`} 
+                            onClick={() => line.deletePatient()}>leave queue!</button>
                     </div>
 
                 </motion.div>
