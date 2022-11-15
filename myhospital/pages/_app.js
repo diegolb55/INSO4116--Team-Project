@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
           <title>MyHospital</title>
       </Head>
-      <Component {...pageProps} />
+      <Component {...pageProps} user={user}/>
     </>
   )
 

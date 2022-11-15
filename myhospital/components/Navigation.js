@@ -55,9 +55,10 @@ export default function Navigation(){
                 <li>
                     <Link href="./">Home</Link>
                 </li>
-                <li>
-                    <Link href="./Radiology">Departments</Link>
-                </li>
+                <li>Department</li>
+                <ul className={styles.departments}>
+                    <li><Link href="./Radiology">Radiology</Link></li>
+                </ul>
                 <li>
                     <Link href="./">Activity</Link>
                 </li>

@@ -5,14 +5,9 @@ import Image from "next/image";
 import VirtualReception from "../components/VirtualReception";
 import { useState } from "react";
 
-export default function Radiology({}){
+export default function Radiology({user}){
 
-    const radiologyDept = new Department("radiology", "skfNeLBKS0k2vYGWDUU8"); 
-    radiologyDept.logwaitinglist();
-    console.log(radiologyDept.length)
-
-
-
+    const radiologyDept = new Department("Radiology", user); 
     const [isVROpen, setIsVROpen] = useState(false);
 
 
@@ -22,14 +17,8 @@ export default function Radiology({}){
             <VirtualReception 
                 isVROpen={isVROpen} 
                 setIsVROpen={setIsVROpen}
-                dept={radiologyDept}
+                line={radiologyDept.waitingLine}
             />
-
-            {/* <p>dept name: { radiologyDept.name() }</p>
-            <p>first in line?: { radiologyDept.peekfirstInLine() }</p>
-            <p>last in line?: { radiologyDept.peekLastInLine() }</p>
-
-            <p>waiting line length: { radiologyDept.activity() }</p> */}
 
             <h3 className={styles.title}>Radiology Department</h3>
             <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
