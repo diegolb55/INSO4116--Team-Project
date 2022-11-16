@@ -1,0 +1,26 @@
+
+.activityCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: centers;
+    align-items: center;
+}
+.activityCont > h3 {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin: 20px 0;
+
+}
+.activityCont > p {
+    margin: 0 0 20px 0;
+}
+.circle {
+    border: 5px solid brown;
+    height: 60vw;
+    width: 60vw;
+    border-radius: 100%;
+}
+.activityCont > p:nth-child(4) {
+    margin: 20px 0;
+    font-size: 1.5rem;
+}

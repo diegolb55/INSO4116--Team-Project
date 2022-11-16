@@ -10,17 +10,20 @@ export default function Home() {
   return (
     <div className={styles.mainContainer} >
 
+      
+
       <Navigation />
 
       <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
         <Image src="/images/building.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
+        
       </div>
 
       
       <div className={styles.infoSection}>
         <h3>Departments</h3>
         <ul className={styles.deptLinks}>
-          <Link href="./" className={styles.homelink}>
+          <Link href="./Emergency" className={styles.homelink}>
             <li>Emergency</li>
           </Link>
           <Link href="./Radiology" className={styles.homelink}>

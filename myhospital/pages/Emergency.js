@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Radiology.module.css"
+import styles from "../styles/Emergency.module.css"
 import { Department } from "../utils/Department"
 
 import Navigation from '../components/Navigation';
@@ -10,10 +10,9 @@ import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
 
 
+export default function Emergency({user}){
 
-export default function Radiology({user}){
-
-    const radiologyDept = new Department("Radiology", user, 10); 
+    const emergencyDept = new Department("Emergency", user, 20); 
     const [isVROpen, setIsVROpen] = useState(false);
 
     return (
@@ -22,18 +21,18 @@ export default function Radiology({user}){
             <VirtualReception 
                 isVROpen={isVROpen} 
                 setIsVROpen={setIsVROpen}
-                department={radiologyDept}
+                department={emergencyDept}
             />
 
-            <h3 className={styles.title}>Radiology Department</h3>
+            <h3 className={styles.title}>Emergency Department</h3>
             <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
-                <Image src="/images/rays.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
+                <Image src="/images/emergency.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
             </div>
 
             <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
 
-            <Activity  />
-            <Transmissibility />
+            <Activity name={emergencyDept.name} />
+            <Transmissibility  name={emergencyDept.name}/>
             <h5>Our Doctors</h5>
             <h5>Department Services</h5>
             <h5>Schedules</h5>

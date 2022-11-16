@@ -48,3 +48,7 @@
     color: gray;
     padding-left: 20px;
 }
+
+.departments > li {
+    margin: 10px 0;
+}
