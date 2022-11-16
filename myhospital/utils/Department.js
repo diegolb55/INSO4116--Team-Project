@@ -12,7 +12,7 @@ export class Department {
     constructor(name, user, capacity){
         this.departmentName = name;
         this.user = user;
-        this.capacity = capacity;
+        this.departmentCapacity = capacity;
         
         // user account snapshot
         this.account = getAccountWithId(this.user.uid);
@@ -25,7 +25,10 @@ export class Department {
         return this.departmentName;
     }
     get activity(){
-        return this.waitingLine.length / this.capacity;
+        return (this.waitingLine.length / this.departmentCapacity)*100;
+    }
+    get capacity(){
+        return this.departmentCapacity;
     }
     
     

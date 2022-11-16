@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Emergency.module.css"
 import { Department } from "../utils/Department"
+import Link from "next/link";
 
 import Navigation from '../components/Navigation';
 import Image from "next/image";
@@ -17,6 +18,9 @@ export default function Emergency({user}){
 
     return (
         <div className={styles.rdeptContainer}>
+            <Link href="./">
+                <p className="logo">myhospital.</p>
+            </Link>
             <Navigation/>
             <VirtualReception 
                 isVROpen={isVROpen} 
@@ -31,7 +35,7 @@ export default function Emergency({user}){
 
             <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
 
-            <Activity name={emergencyDept.name} />
+            <Activity department={emergencyDept}/>
             <Transmissibility  name={emergencyDept.name}/>
             <h5>Our Doctors</h5>
             <h5>Department Services</h5>
