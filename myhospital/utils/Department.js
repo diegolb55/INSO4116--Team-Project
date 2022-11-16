@@ -9,9 +9,10 @@ from "firebase/firestore"
 
 export class Department {
     
-    constructor(name, user){
+    constructor(name, user, capacity){
         this.departmentName = name;
         this.user = user;
+        this.capacity = capacity;
         
         // user account snapshot
         this.account = getAccountWithId(this.user.uid);
@@ -20,10 +21,14 @@ export class Department {
     }
     
 
-    name(){
+    get name(){
         return this.departmentName;
     }
- 
+    get activity(){
+        return this.waitingLine.length / this.capacity;
+    }
+    
+    
     
 
     
@@ -56,15 +61,22 @@ class WaitingLine {
     hasTurn(){
         return this.wsd?.find(({ id }) => id === this.account.id );
     }
-    async sortPositions(){
-        let sortedWSD = this.wsd.sort((a,b) => a.position - b.position);
+    async updatePositions(){
+        let sortedWSD = this.wsd.sort((a,b) => a.position - b.position).filter((doc) => doc.id !== this.account.id);
         let docref;
 
         for (let i=0; i < this.length; i++){
-            docref = doc(db, `departments/${this.departmentId}/waitingline`, sortedWSD[i].id )
-            await updateDoc(docref, {
-                position: i+1
-            });
+            try {
+                docref = doc(db, `departments/${this.departmentId}/waitingline`, sortedWSD[i].id )
+                
+                await updateDoc(docref, {
+                    position: i+1
+                    
+                });
+            } catch(error){
+                console.log(error)
+            }
+            
         }
         
     }
@@ -86,7 +98,8 @@ class WaitingLine {
         
     }
     async deletePatient(){
-        await deleteDoc(doc(db,`departments/${this.departmentId}/waitingline`, this.account?.id));
+        await deleteDoc(doc(db,`departments/${this.departmentId}/waitingline`, this.account?.id))
+        .then(this.updatePositions());
     }
     get length(){
         return this.wcd?.length;
