@@ -10,7 +10,9 @@ export default function Home() {
   return (
     <div className={styles.mainContainer} >
 
-      
+      <Link href="./">
+        <p className="logo">myhospital.</p>
+      </Link>
 
       <Navigation />
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import styles from "../styles/Radiology.module.css"
 import { Department } from "../utils/Department"
 
@@ -13,11 +14,14 @@ import Transmissibility from "../components/Department/Transmissibility";
 
 export default function Radiology({user}){
 
-    const radiologyDept = new Department("Radiology", user, 10); 
+    const radiologyDept = new Department("Radiology", user, 5); 
     const [isVROpen, setIsVROpen] = useState(false);
 
     return (
         <div className={styles.rdeptContainer}>
+            <Link href="./">
+                <p className="logo">myhospital.</p>
+            </Link>
             <Navigation/>
             <VirtualReception 
                 isVROpen={isVROpen} 
@@ -32,7 +36,7 @@ export default function Radiology({user}){
 
             <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
 
-            <Activity  />
+            <Activity  department={radiologyDept}/>
             <Transmissibility />
             <h5>Our Doctors</h5>
             <h5>Department Services</h5>
