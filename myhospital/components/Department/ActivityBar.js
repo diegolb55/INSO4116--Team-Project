@@ -25,7 +25,12 @@ export default function ActivityBar({activity, styles, name, capacity, length}) 
 
             </div>
             {
-                length && capacity ?   <p>{length} / {capacity}</p> : <></>
+                length && capacity ?   
+                    <div className={styles.barInfo}>
+                        <p>{length} / {capacity}</p>
+                        <p>{name}</p>
+                    </div> 
+                : <></>
             }
 
            

@@ -24,7 +24,7 @@
 
 .barbox {
     /* border: 2px solid red; */
-    height: stretch;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,4 +51,7 @@
     width: stretch;
     border-radius: 50px;
 
+}
+.barInfo {
+    text-align: center;
 }
