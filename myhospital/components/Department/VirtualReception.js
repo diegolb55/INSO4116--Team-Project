@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion"
-import styles from "../../styles/VirtualReception.module.css"
+import styles from "../../styles/Department/VirtualReception.module.css"
 import {IoIosArrowBack} from "react-icons/io"
 import { useState } from "react"
 

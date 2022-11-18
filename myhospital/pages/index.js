@@ -3,10 +3,13 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 
 import Navigation from '../components/Navigation';
+import OverallActivity from '../components/OverallActivity';
 
 
 
 export default function Home() {
+
+
   return (
     <div className={styles.mainContainer} >
 
@@ -46,10 +49,10 @@ export default function Home() {
           
         </ul>
       </div>
-      <div className={styles.infoSection}>
-        <h3>Overall Activity</h3>
-        <div className={styles.barStats}></div>
-      </div>
+
+      <OverallActivity />
+
+
       <div className={styles.infoSection}>
         <h3>Transmissibility</h3>
         <div className={styles.pieChart}></div>

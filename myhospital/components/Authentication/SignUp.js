@@ -2,7 +2,7 @@
 import {useState} from "react"
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../firebase'
-import styles from "../../styles/Authentication.module.css"
+import styles from "../../styles//Authentication/Authentication.module.css"
 import { doc, setDoc, collection, setIndexConfiguration, addDoc } from "firebase/firestore";
 
 

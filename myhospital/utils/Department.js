@@ -121,12 +121,12 @@ class WaitingLine {
 
 /** Utility functions */
 
-const getDepartmentId = (dName) => {
+export const getDepartmentId = (dName) => {
     // department collection snapshot-data reference
     let [ snapshot ] = useCollection(collection(db,"departments"));
     let departments = snapshot?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
 
-    let id = departments?.find(({ departmentName }) => departmentName===dName ).id
+    let id = departments?.find(({ departmentName }) => departmentName===dName )?.id
     
     return id;
 }

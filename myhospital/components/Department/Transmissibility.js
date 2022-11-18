@@ -1,5 +1,5 @@
 
-import styles from "../../styles/Transmissibility.module.css"
+import styles from "../../styles/Department/Transmissibility.module.css"
 
 export default function Transmissibility({ name }){
     return (
