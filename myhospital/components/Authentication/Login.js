@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react"
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase'
-import styles from "../../styles/Authentication.module.css"
+import styles from "../../styles/Authentication/Authentication.module.css"
 
 
 
