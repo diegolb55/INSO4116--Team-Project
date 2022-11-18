@@ -9,10 +9,10 @@ from "firebase/firestore"
 
 export class Department {
     
-    constructor(name, user, capacity){
+    constructor(name, user){
         this.departmentName = name;
         this.user = user;
-        this.departmentCapacity = capacity;
+        this.departmentCapacity = getDepartmentId(name)[1];
         
         // user account snapshot
         this.account = getAccountWithId(this.user.uid);
@@ -39,7 +39,7 @@ export class Department {
 
 class WaitingLine {
     constructor(departmentName, userAcc){
-        this.departmentId = getDepartmentId(departmentName);
+        this.departmentId = getDepartmentId(departmentName)[0];
         this.account = userAcc;
 
         // wcd = waitinglist collection data reference
@@ -121,14 +121,16 @@ class WaitingLine {
 
 /** Utility functions */
 
-export const getDepartmentId = (dName) => {
+const getDepartmentId = (dName) => {
     // department collection snapshot-data reference
     let [ snapshot ] = useCollection(collection(db,"departments"));
     let departments = snapshot?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
 
     let id = departments?.find(({ departmentName }) => departmentName===dName )?.id
-    
-    return id;
+    let cap = departments?.find(({ departmentName }) => departmentName===dName )?.capacity
+    let result = [id, cap]
+    console.log(result)
+    return result;
 }
 
 const getAccountWithId = (uid) => {

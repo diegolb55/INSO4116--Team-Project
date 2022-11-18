@@ -14,7 +14,7 @@ import Transmissibility from "../components/Department/Transmissibility";
 
 export default function Radiology({user}){
 
-    const radiologyDept = new Department("Radiology", user, 5); 
+    const radiologyDept = new Department("Radiology", user); 
     const [isVROpen, setIsVROpen] = useState(false);
 
     return (

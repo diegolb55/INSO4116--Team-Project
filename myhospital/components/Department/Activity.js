@@ -3,6 +3,8 @@ import {FaXRay} from "react-icons/fa"
 import ActivityBar from "./ActivityBar";
 
 export default function Activity({ department}){
+
+    console.log(department.waitingLine.length)
     
     return (
         <div className={styles.activityCont}>
@@ -16,7 +18,7 @@ export default function Activity({ department}){
                     
                     />
             </div>
-            <p>{department.waitingLine.length}/{department.capacity} <br/>occupancy</p>
+            <p>{department.waitingLine.length} / {department.capacity} <br/>occupancy</p>
         </div>
     )
 }

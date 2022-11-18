@@ -13,7 +13,7 @@ import Transmissibility from "../components/Department/Transmissibility";
 
 export default function Emergency({user}){
 
-    const emergencyDept = new Department("Emergency", user, 20); 
+    const emergencyDept = new Department("Emergency", user); 
     const [isVROpen, setIsVROpen] = useState(false);
 
     return (
