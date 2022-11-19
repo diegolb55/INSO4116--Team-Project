@@ -9,6 +9,7 @@ import DeptBtns from "../components/Department/DeptBtns";
 import VirtualReception from "../components/Department/VirtualReception";
 import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
+import Doctors from "../components/Department/Doctors";
 
 
 export default function Emergency({user}){
@@ -37,7 +38,8 @@ export default function Emergency({user}){
 
             <Activity department={emergencyDept}/>
             <Transmissibility  name={emergencyDept.name}/>
-            <h5>Our Doctors</h5>
+
+            <Doctors />
             <h5>Department Services</h5>
             <h5>Schedules</h5>
 

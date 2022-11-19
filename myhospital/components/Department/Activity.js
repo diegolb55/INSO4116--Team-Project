@@ -5,7 +5,7 @@ import ActivityBar from "./ActivityBar";
 export default function Activity({ department}){
 
     console.log(department.waitingLine.length)
-    
+
     return (
         <div className={styles.activityCont}>
              <h3>Activity information</h3>
@@ -18,7 +18,7 @@ export default function Activity({ department}){
                     
                     />
             </div>
-            <p>{department.waitingLine.length} / {department.capacity} <br/>occupancy</p>
+            <p>{department.activity} %<br/>occupancy</p>
         </div>
     )
 }
