@@ -9,8 +9,7 @@ import DeptBtns from "../components/Department/DeptBtns";
 import VirtualReception from "../components/Department/VirtualReception";
 import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
-
-
+import Doctors from "../components/Department/Doctors"
 
 export default function Radiology({user}){
 
@@ -38,7 +37,7 @@ export default function Radiology({user}){
 
             <Activity  department={radiologyDept}/>
             <Transmissibility />
-            <h5>Our Doctors</h5>
+            <Doctors />
             <h5>Department Services</h5>
             <h5>Schedules</h5>
 

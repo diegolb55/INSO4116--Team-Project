@@ -1,0 +1,47 @@
+
+.docbox {
+    /* border: 2px solid black; */
+    margin: 20px 0;
+}
+.docbox h3 {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-align: center;
+}
+.swiper {
+
+    /* border: 3px solid red; */
+    position: relative;
+}
+
+.swiperSlide {
+    height: 100%;
+
+    font-size: 18px;
+    background: #fff;
+    
+
+}
+
+.swiperImg {
+    position: relative;
+    display: block;
+    height: 300px;
+    object-fit: cover;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    
+}
+.swiperImg p {
+    text-align: center;
+    border: 5px solid white;
+    padding: 10px;
+    border-radius: 25px 25px 0 0;
+    position: absolute;
+    bottom: 0;
+    background: lightblue;
+    width: 100%;
+}

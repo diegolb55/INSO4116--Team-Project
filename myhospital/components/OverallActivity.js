@@ -59,8 +59,7 @@ export default function OverallActivity(){
                     activity={activity} 
                     styles={styles} 
                     name={name} 
-                    capacity={capacity}
-                    length={arr?.length}/>
+                    footer={true}/>
             )
         });
 
