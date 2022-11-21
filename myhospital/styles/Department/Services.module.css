@@ -1,0 +1,29 @@
+
+
+/* .serviceCont {
+    border: 2px solid red;
+} */
+
+.serviceCont  h3 {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-align: center;
+}
+.servicebox {
+    /* border: 2px solid blue; */
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.servicebox > p{
+    background: coral;
+    width: fit-content;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px 20px;
+}

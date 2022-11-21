@@ -10,6 +10,7 @@ import VirtualReception from "../components/Department/VirtualReception";
 import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
 import Doctors from "../components/Department/Doctors";
+import Services from "../components/Department/Services";
 
 
 export default function Emergency({user}){
@@ -37,10 +38,10 @@ export default function Emergency({user}){
             <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
 
             <Activity department={emergencyDept}/>
-            <Transmissibility  name={emergencyDept.name}/>
+            <Transmissibility department={emergencyDept}/>
 
-            <Doctors />
-            <h5>Department Services</h5>
+            <Doctors department={emergencyDept}/>
+            <Services department={emergencyDept}/>
             <h5>Schedules</h5>
 
         </div>

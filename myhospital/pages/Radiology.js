@@ -9,12 +9,15 @@ import DeptBtns from "../components/Department/DeptBtns";
 import VirtualReception from "../components/Department/VirtualReception";
 import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
-import Doctors from "../components/Department/Doctors"
+import Doctors from "../components/Department/Doctors";
+import Services from "../components/Department/Services";
 
 export default function Radiology({user}){
 
     const radiologyDept = new Department("Radiology", user); 
     const [isVROpen, setIsVROpen] = useState(false);
+
+    
 
     return (
         <div className={styles.rdeptContainer}>
@@ -36,9 +39,9 @@ export default function Radiology({user}){
             <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
 
             <Activity  department={radiologyDept}/>
-            <Transmissibility />
-            <Doctors />
-            <h5>Department Services</h5>
+            <Transmissibility department={radiologyDept}/>
+            <Doctors department={radiologyDept}/>
+            <Services department={radiologyDept}/>
             <h5>Schedules</h5>
 
         </div>

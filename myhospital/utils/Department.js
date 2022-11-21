@@ -12,12 +12,25 @@ export class Department {
     constructor(name, user){
         this.departmentName = name;
         this.user = user;
+        this.departmentId = getDepartmentId(name)[0];
         this.departmentCapacity = getDepartmentId(name)[1];
         
         // user account snapshot
         this.account = getAccountWithId(this.user.uid);
 
+        // create waiting line
         this.waitingLine = new WaitingLine(name, this.account);
+
+        // dsd = doctor list collection snapshot-data reference
+        let doctorCollection = collection(db, `departments/${this.departmentId}/doctors`);
+        let [dsnap] = useCollection(doctorCollection);
+        this.dsd = dsnap?.docs?.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // ssd = service list collection snapshot-data reference
+        let serviceCollection = collection(db, `departments/${this.departmentId}/services`);
+        let [ssnap] = useCollection(serviceCollection);
+        this.ssd = ssnap?.docs?.map(doc => ({ id: doc.id, ...doc.data() }));
+
     }
     
 
@@ -29,6 +42,12 @@ export class Department {
     }
     get capacity(){
         return this.departmentCapacity;
+    }
+    get doctors(){
+        return this.dsd;
+    }
+    get services(){
+        return this.ssd;
     }
     
     
@@ -129,7 +148,6 @@ const getDepartmentId = (dName) => {
     let id = departments?.find(({ departmentName }) => departmentName===dName )?.id
     let cap = departments?.find(({ departmentName }) => departmentName===dName )?.capacity
     let result = [id, cap]
-    console.log(result)
     return result;
 }
 
