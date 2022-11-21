@@ -9,7 +9,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 
-const Slide = () => {
+const Slide = ({doc}) => {
     const [openInfo, setOpenInfo] = useState(false);
     const variants = {
         open:{
@@ -26,21 +26,27 @@ const Slide = () => {
 
     return (
         <div className={styles.swiperbox} onClick={()=>setOpenInfo((b)=>!b)}>
-                <Image src="/images/fdoctor.jpg" layout={'fill'} objectFit={'cover'} alt="building"/>
+                <Image src={doc.g == "m" ?
+                    "/images/mdoctor.jpg"
+                    :
+                    "/images/fdoctor.jpg"
+                    } 
+                    layout={'fill'} objectFit={'cover'} alt="building"
+                />
                 
                 <motion.div 
                     className={styles.docInfo}
                     animate={{
                         height: openInfo ? "100%": 60,
-                        width: openInfo ?  "120%": "105%",
+                        width: openInfo ?  "130%": "110%",
                         borderRadius: openInfo ? 0 : "20px 20px 0 0",
                     }}
                     transition={{type:"tween", duration:.3}}
                 >
-                    <p>Dr. Hernan</p>
+                    <p>{ doc.name}</p>
                     <AnimatePresence>
                         { openInfo && (
-                            <p>Education, experience</p>
+                            <p>{ doc.bio }</p>
                         )}
                     </AnimatePresence>
                 </motion.div>
@@ -48,31 +54,28 @@ const Slide = () => {
     )
 }
 
-let n = [0, 1, 2, 3];
-const getSlides = () => 
-
-    n?.map((doc, index) => {
-
-
-        return (
-        <SwiperSlide 
-            className={styles.swiperSlide}
-            key={Math.random()}
-        >
-            <Slide />
-        </SwiperSlide>
-        )
-    })
 
 
 
 
-export default function Doctors(){
+
+export default function Doctors({department}){
    
 
-    const [isRect, setIsRect] = useState(false)
+    const getSlides = () => 
+
+        department.doctors?.map((doc, index) => {
+
+            return (
+            <SwiperSlide 
+                className={styles.swiperSlide}
+                key={Math.random()}
+            >
+                <Slide doc={doc}/>
+            </SwiperSlide>
+            )
+        })
     
-   
     return (
         <div className={styles.docbox}>
             <h3>Our Doctors</h3>

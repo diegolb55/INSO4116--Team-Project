@@ -4,7 +4,6 @@ import ActivityBar from "./ActivityBar";
 
 export default function Activity({ department}){
 
-    console.log(department.waitingLine.length)
 
     return (
         <div className={styles.activityCont}>
