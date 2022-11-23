@@ -10,6 +10,7 @@ import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
 import Doctors from "../components/Department/Doctors";
 import Services from "../components/Department/Services";
+import CustomImage from "../components/Department/CustomImage";
 
 
 export default function Emergency({user}){
@@ -34,9 +35,12 @@ export default function Emergency({user}){
                 fontSize:"1.7rem", fontWeight:"lighter"
             }}>Emergency Department</h3>
 
-            <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
-                <Image src="/images/emergency.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
-            </div>
+            <CustomImage
+                src="/images/emergency.jpg" 
+                layout={'fill'} 
+                objectFit={'cover'} 
+                alt="building"
+            />
 
             <DeptBtns setIsVROpen={setIsVROpen}/>
 
