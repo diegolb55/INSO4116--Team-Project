@@ -26,13 +26,15 @@ const Slide = ({doc}) => {
 
     return (
         <div className={styles.swiperbox} onClick={()=>setOpenInfo((b)=>!b)}>
-                <Image src={doc.g == "m" ?
-                    "/images/mdoctor.jpg"
-                    :
-                    "/images/fdoctor.jpg"
-                    } 
-                    layout={'fill'} objectFit={'cover'} alt="building"
-                />
+                <div className={styles.imgCont}>
+                    <Image src={doc.g == "m" ?
+                        "/images/mdoctor.jpg"
+                        :
+                        "/images/fdoctor.jpg"
+                        } 
+                        layout={'fill'} objectFit={'cover'} alt="building"
+                    />
+                </div>
                 
                 <motion.div 
                     className={styles.docInfo}
@@ -41,7 +43,7 @@ const Slide = ({doc}) => {
                         width: openInfo ?  "130%": "110%",
                         borderRadius: openInfo ? 0 : "20px 20px 0 0",
                     }}
-                    transition={{type:"tween", duration:.3}}
+                    transition={{type:"tween", duration:.2}}
                 >
                     <p>{ doc.name}</p>
                     <AnimatePresence>
@@ -79,6 +81,7 @@ export default function Doctors({department}){
     return (
         <div className={styles.docbox}>
             <h3>Our Doctors</h3>
+            <p>Come checkout what our staff and doctors can do for you.</p>
             <Swiper
                 autoHeight={true}
 

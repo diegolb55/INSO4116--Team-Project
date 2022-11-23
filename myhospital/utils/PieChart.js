@@ -10,7 +10,7 @@ import ReactApexChart from "react-apexcharts";
 
         this.state = {
         
-            series: [10, 55, 13, 43, 22],
+            series: [5, 10, 15, 20, 25],
             options: {
                 chart: {
                     width: 380,

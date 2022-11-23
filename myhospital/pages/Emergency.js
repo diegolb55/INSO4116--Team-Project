@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "../styles/Emergency.module.css"
 import { Department } from "../utils/Department"
 import Link from "next/link";
 
@@ -19,7 +18,7 @@ export default function Emergency({user}){
     const [isVROpen, setIsVROpen] = useState(false);
 
     return (
-        <div className={styles.rdeptContainer}>
+        <div >
             <Link href="./">
                 <p className="logo">myhospital.</p>
             </Link>
@@ -30,12 +29,16 @@ export default function Emergency({user}){
                 department={emergencyDept}
             />
 
-            <h3 className={styles.title}>Emergency Department</h3>
+            <h3  style={{
+                margin: 0, padding:"130px 0 50px 20px",
+                fontSize:"1.7rem", fontWeight:"lighter"
+            }}>Emergency Department</h3>
+
             <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
                 <Image src="/images/emergency.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
             </div>
 
-            <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
+            <DeptBtns setIsVROpen={setIsVROpen}/>
 
             <Activity department={emergencyDept}/>
             <Transmissibility department={emergencyDept}/>

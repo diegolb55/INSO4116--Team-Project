@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../styles/Radiology.module.css"
 import { Department } from "../utils/Department"
 
 import Navigation from '../components/Navigation';
@@ -20,7 +19,7 @@ export default function Radiology({user}){
     
 
     return (
-        <div className={styles.rdeptContainer}>
+        <div >
             <Link href="./">
                 <p className="logo">myhospital.</p>
             </Link>
@@ -31,13 +30,14 @@ export default function Radiology({user}){
                 department={radiologyDept}
             />
 
-            <h3 className={styles.title}>Radiology Department</h3>
-            <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
+            <h3  style={{
+                margin: 0, padding:"130px 0 50px 20px",
+                fontSize:"1.7rem", fontWeight:"lighter"
+            }}>Radiology Department</h3>            <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
                 <Image src="/images/rays.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
             </div>
 
-            <DeptBtns styles={ styles } setIsVROpen={setIsVROpen}/>
-
+            <DeptBtns  setIsVROpen={setIsVROpen}/>
             <Activity  department={radiologyDept}/>
             <Transmissibility department={radiologyDept}/>
             <Doctors department={radiologyDept}/>

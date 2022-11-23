@@ -4,9 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 0 30px 0;
-    /* border: 2px solid red; */
-
+    margin: 10px 0;
 }
 .transmissibilityCont > h3 {
     font-weight: lighter;
@@ -16,6 +14,8 @@
 }
 .transmissibilityCont > p {
     margin: 0 0 20px 0;
+    width: 80%;
+    text-align: center;
 }
 
 .pieCont {
