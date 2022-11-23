@@ -14,7 +14,7 @@
 .barStats {
     /* border: 2px solid lightgray; */
     width: 80vw;
-    height: 300px;
+    height: 400px;
     margin: 0 auto 20px auto;
 
     display: flex;
@@ -35,9 +35,11 @@
     color: brown
 }
 .barCont {
-    background: lightgreen;
+    /* border: 2px solid black; */
+
+    background: #BCC6A7;
     height: 80%;
-    width: 30px;
+    width: 40px;
     border-radius: 50px;
     position: relative;
     display: flex;
@@ -45,13 +47,20 @@
     overflow: hidden;
 }
 .fill {
-    background: brown;
+    background: #525744;
     position: absolute;
     bottom: 0;
     width: stretch;
-    border-radius: 50px;
+    border-radius: 50%;
 
 }
 .barInfo {
     text-align: center;
+    color: #9CA683;
+}
+.barInfo > p{
+    margin: 10px 0;
+}
+.barInfo > p:nth-child(2){
+    font-size: .7rem;
 }

@@ -1,4 +1,4 @@
-import { db, auth } from "../firebase";
+import { db } from "../firebase";
 import { useDocumentData, useCollectionData, useCollection } from "react-firebase-hooks/firestore"
 import { orderBy, doc, collection, 
     query, addDoc, serverTimestamp,
@@ -6,11 +6,8 @@ import { orderBy, doc, collection,
     updateDoc
 } 
 from "firebase/firestore";
-import { getDepartmentId } from "../utils/Department";
 import styles from "../styles/OverallActivity.module.css"
 import ActivityBar from "./Department/ActivityBar";
-// import { getDepartmentId } from "../utils/Department";
-import { useState, useEffect } from "react";
 
 export default function OverallActivity(){
 

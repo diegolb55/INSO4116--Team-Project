@@ -1,5 +1,6 @@
 
 .transmissibilityCont {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,8 +20,11 @@
 }
 
 .pieCont {
-    /* border: 3px solid gray; */
-    width: 100%;
+    padding: 20px 0;
+
+    width: 90%;
+    background: #E4DEC2;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
 }
