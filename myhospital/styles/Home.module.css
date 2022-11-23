@@ -7,7 +7,8 @@
 .infoSection {
     /* border: 2px solid red; */
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 30px 0;
 }
 .infoSection h3 {
     /* border: 2px solid black; */
@@ -15,7 +16,11 @@
     font-size: 2rem;
     margin: 20px auto;
 }
-
+.infoSection > p {
+    /* border: 2px solid black; */
+    width: 90vw;
+    margin: 10px auto;
+}
 
 .deptLinks {
     /* border: 2px solid black; */
@@ -50,15 +55,16 @@
 }
 
 
-.barStats {
-    border: 2px solid lightgray;
+.pieChart {
+    /* border: 2px solid lightgray; */
     width: 80vw;
     height: 300px;
     margin: 0 auto 20px auto;
 }
-.pieChart {
-    border: 2px solid lightgray;
-    width: 80vw;
-    height: 300px;
-    margin: 0 auto 20px auto;
+
+.pieCont {
+    /* border: 3px solid gray; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

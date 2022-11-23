@@ -1,5 +1,6 @@
-import {FaXRay} from "react-icons/fa"
+import {FaXRay, FaLungs} from "react-icons/fa"
 import {TbEmergencyBed} from "react-icons/tb"
+import {RiHeartPulseFill} from "react-icons/ri"
 
 
 export default function ActivityBar({activity, styles, name, footer}) {
@@ -11,6 +12,12 @@ export default function ActivityBar({activity, styles, name, footer}) {
                 break;
             case "Emergency":
                 return <TbEmergencyBed/>;
+                break;
+            case "Pulmonology":
+                return <FaLungs/>;
+                break;
+            case "Cardiology":
+                return <RiHeartPulseFill/>;
                 break;
             default:
                 return "no icon"

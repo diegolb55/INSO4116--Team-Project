@@ -1,12 +1,17 @@
 
 .docbox {
     /* border: 2px solid black; */
-    margin: 20px 0;
+    margin: 100px 0;
 }
 .docbox h3 {
     font-weight: lighter;
     font-size: 1.5rem;
     margin: 20px 0;
+    text-align: center;
+}
+.docbox > p {
+    margin: 0 auto 20px auto;
+    width: 80%;
     text-align: center;
 }
 
@@ -27,7 +32,12 @@
     display: flex;
     justify-content: center; 
 }
-
+.imgCont {
+    position: relative;
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+}
 .docInfo {
     position: absolute;
     bottom: 0;

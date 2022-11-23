@@ -14,7 +14,10 @@ export default function Transmissibility({ department }){
 
         <div className={styles.transmissibilityCont}>
             <h3>Transmissibility</h3>
-            <p>Contagious diseases in {department.name} department</p>
+            <p>
+                Contagious diseases in {department.name} department.
+                Based on all the in-patients currently on this department.
+            </p>
 
             <PieChart styles={styles}/>
         </div>

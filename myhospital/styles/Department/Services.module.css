@@ -1,8 +1,9 @@
 
 
-/* .serviceCont {
-    border: 2px solid red;
-} */
+.serviceCont {
+    /* border: 2px solid red; */
+    margin: 100px 0;
+}
 
 .serviceCont  h3 {
     font-weight: lighter;
@@ -12,7 +13,6 @@
 }
 .servicebox {
     /* border: 2px solid blue; */
-    width: 80%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;

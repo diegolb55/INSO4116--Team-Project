@@ -5,6 +5,10 @@ import styles from '../styles/Home.module.css'
 import Navigation from '../components/Navigation';
 import OverallActivity from '../components/OverallActivity';
 
+import dynamic from 'next/dynamic'
+
+
+const PieChart = dynamic(() => import('../utils/PieChart'), { ssr: false });
 
 
 export default function Home() {
@@ -14,7 +18,7 @@ export default function Home() {
     <div className={styles.mainContainer} >
 
       <Link href="./">
-        <p className="logo">myhospital.</p>
+        <p className="logo">myhospital<span className='dot'>.</span></p>
       </Link>
 
       <Navigation />
@@ -27,6 +31,9 @@ export default function Home() {
       
       <div className={styles.infoSection}>
         <h3>Departments</h3>
+        <p>&emsp;Familiarize yourself with each department before, after or while
+          you are currently visiting.
+        </p>
         <ul className={styles.deptLinks}>
           <Link href="./Emergency" className={styles.homelink}>
             <li>Emergency</li>
@@ -34,10 +41,10 @@ export default function Home() {
           <Link href="./Radiology" className={styles.homelink}>
             <li>Radiology</li>
           </Link>
-          <Link href="./" className={styles.homelink}>
+          <Link href="./Pulmonology" className={styles.homelink}>
             <li>Pulmonology</li>
           </Link>
-          <Link href="./" className={styles.homelink}>
+          <Link href="./Cardiology" className={styles.homelink}>
             <li>Cardiology</li>
           </Link>
           <Link href="./" className={styles.homelink}>
@@ -50,12 +57,20 @@ export default function Home() {
         </ul>
       </div>
 
-      <OverallActivity />
+      <div className={styles.infoSection}>
+        <h3>Overall Activity</h3>
+        <p>&emsp;Based on the reception occupancy from each
+          department we have the following live bar graphs:
+        </p>
+        <OverallActivity />
+      </div>
 
 
       <div className={styles.infoSection}>
         <h3>Transmissibility</h3>
-        <div className={styles.pieChart}></div>
+        <div className={styles.pieChart}>
+          <PieChart styles={styles}/>
+        </div>
       </div>
 
       

@@ -59,6 +59,9 @@ export default function Navigation(){
                 <ul className={styles.departments}>
                     <li><Link href="./Emergency">Emergency</Link></li>
                     <li><Link href="./Radiology">Radiology</Link></li>
+                    <li><Link href="./Pulmonology">Pulmonology</Link></li>
+                    <li><Link href="./Cardiology">Cardiology</Link></li>
+
                 </ul>
                 <li>
                     <Link href="./">Activity</Link>

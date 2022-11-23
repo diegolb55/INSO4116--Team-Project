@@ -14,29 +14,27 @@ import { useState, useEffect } from "react";
 
 export default function OverallActivity(){
 
-    const getDepartmentId = (dName, depts) => {
-        let id = depts?.find(({ departmentName }) => departmentName===dName )?.id
-        
-        return id;
-    }
-   
-
     let [ snapshot ] = useCollection(collection(db,"departments"));
     const departments = snapshot?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
     
+
+
     const allReceptions = [];
+    let [csnap] = useCollection(collection(db, `departments/Cardiology/reception`))
+    let c = csnap?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+    allReceptions.push(c)
 
-    let id = getDepartmentId("Radiology", departments)
-    let [linesnap] = useCollection(collection(db, `departments/${id}/waitingline`))
-    let line = linesnap?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+    let [esnap] = useCollection(collection(db, `departments/Emergency/reception`))
+    let e = esnap?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+    allReceptions.push(e)
 
-    allReceptions.push(line)
+    let [psnap] = useCollection(collection(db, `departments/Pulmonology/reception`))
+    let p = psnap?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+    allReceptions.push(p)
 
-    let eid = getDepartmentId("Emergency", departments)
-    let [esnap] = useCollection(collection(db, `departments/${eid}/waitingline`))
-    let eline = esnap?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
-
-    allReceptions.push(eline)
+    let [rsnap] = useCollection(collection(db, `departments/Radiology/reception`))
+    let r = rsnap?.docs.map( doc => ({ id: doc.id, ...doc.data() }))
+    allReceptions.push(r)
 
     
     const overallBars =  () => 
@@ -47,7 +45,7 @@ export default function OverallActivity(){
             
             if(departments){
                 capacity = departments[index].capacity;
-                name = departments[index].departmentName;
+                name = departments[index].id;
             
             }
             
@@ -70,7 +68,6 @@ export default function OverallActivity(){
     
     return (
         <div className={styles.infoSection}>
-            <h3>Overall Activity</h3>
             <div className={styles.barStats}>
                 {
                     overallBars()
