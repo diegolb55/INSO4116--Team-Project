@@ -10,6 +10,7 @@ import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
 import Doctors from "../components/Department/Doctors";
 import Services from "../components/Department/Services";
+import CustomImage from "../components/Department/CustomImage";
 
 export default function Radiology({user}){
 
@@ -33,9 +34,14 @@ export default function Radiology({user}){
             <h3  style={{
                 margin: 0, padding:"130px 0 50px 20px",
                 fontSize:"1.7rem", fontWeight:"lighter"
-            }}>Radiology Department</h3>            <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
-                <Image src="/images/rays.jpg" layout={'fill'} objectFit={'cover'} alt="building" />
-            </div>
+            }}>Radiology Department</h3>            
+            
+            <CustomImage
+                src="/images/rays.jpg" 
+                layout={'fill'} 
+                objectFit={'cover'} 
+                alt="building"
+            />
 
             <DeptBtns  setIsVROpen={setIsVROpen}/>
             <Activity  department={radiologyDept}/>

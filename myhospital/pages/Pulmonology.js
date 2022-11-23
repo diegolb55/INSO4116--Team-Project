@@ -10,6 +10,7 @@ import Activity from "../components/Department/Activity";
 import Transmissibility from "../components/Department/Transmissibility";
 import Doctors from "../components/Department/Doctors";
 import Services from "../components/Department/Services";
+import CustomImage from "../components/Department/CustomImage";
 
 export default function Pulmonology({user}){
 
@@ -33,10 +34,15 @@ export default function Pulmonology({user}){
             <h3  style={{
                 margin: 0, padding:"130px 0 50px 20px",
                 fontSize:"1.7rem", fontWeight:"lighter"
-            }}>Pulmonology Department</h3>            
-            <div style={{position:"relative", width:"100vw", height:200, opacity:.7}}>
-                <Image src="/images/pulmonology.png" layout={'fill'} objectFit={'cover'} alt="building" />
-            </div>
+            }}>Pulmonology Department</h3>       
+
+            
+            <CustomImage
+                src="/images/pulmonology.png" 
+                layout={'fill'} 
+                objectFit={'cover'} 
+                alt="building"
+            />
 
             <DeptBtns  setIsVROpen={setIsVROpen}/>
             <Activity  department={pulmonologyDept}/>
