@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.9.1",
     "apexcharts": "^3.36.3",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
@@ -20,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.0",
     "react-icons": "^4.6.0",
-    "swiper": "^8.4.4"
+    "swiper": "^8.4.4",
+    "three": "^0.146.0"
   }
 }

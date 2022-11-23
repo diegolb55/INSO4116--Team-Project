@@ -9,6 +9,7 @@ body {
   height: auto;
   overflow-x: hidden;
   position: relative;
+  color: #525744;
 }
 
 a {
@@ -50,4 +51,11 @@ a {
   height: fit-content;
   font-weight: bolder;
   /* border: 2px solid black; */
+}
+
+#canvas-container {
+  /* border: 4px solid red; */
+  /* background: white; */
+  height: 80px;
+  width: 100%;
 }
