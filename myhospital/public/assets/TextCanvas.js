@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 
-import kanit from '../assets/Kanit Light_Regular.json'
+import kanit from './Kanit Light_Regular.json'
 import { extend } from '@react-three/fiber'
 import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'

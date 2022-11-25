@@ -7,7 +7,7 @@ import OverallActivity from '../components/OverallActivity';
 
 import dynamic from 'next/dynamic'
 
-import TextCanvas from '../components/TextCanvas';
+import TextCanvas from '../public/assets/TextCanvas';
 
 
 const PieChart = dynamic(() => import('../utils/PieChart'), { ssr: false });

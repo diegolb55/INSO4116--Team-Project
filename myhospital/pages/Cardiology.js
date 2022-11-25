@@ -12,6 +12,9 @@ import Doctors from "../components/Department/Doctors";
 import Services from "../components/Department/Services";
 import CustomImage from "../components/Department/CustomImage";
 
+import HeartCanvas from "../public/assets/Model";
+
+
 export default function Cardiology({user}){
 
     const cardiologyDept = new Department("Cardiology", user); 
@@ -42,6 +45,7 @@ export default function Cardiology({user}){
                 objectFit={'cover'} 
                 alt="building"
             />
+            <HeartCanvas/>
 
             <DeptBtns  setIsVROpen={setIsVROpen}/>
             <Activity  department={cardiologyDept}/>
