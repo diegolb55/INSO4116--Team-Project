@@ -2,6 +2,8 @@ import styles from "../../styles/Department/Services.module.css"
 
 export default function Services({department}){
 
+    console.log("department.services: ", department.services)
+
     const getServices = () => 
         department.services?.map(
             (doc, index) => <p key={Math.random()}>{doc.service}</p>

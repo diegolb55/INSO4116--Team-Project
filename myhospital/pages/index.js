@@ -34,8 +34,8 @@ export default function Home() {
 
       
       <div className={styles.infoSection}>
-        {/* <h3>Departments</h3> */}
-        <TextCanvas text="Departments"/>
+        <h3>Departments</h3>
+        {/* <TextCanvas text="Departments"/> */}
 
         <p>&emsp;Familiarize yourself with each department before, after or while
           you are currently visiting.
@@ -64,8 +64,8 @@ export default function Home() {
       </div>
 
       <div className={styles.infoSection}>
-        {/* <h3>Overall Activity</h3> */}
-        <TextCanvas text="Overall Activity"/>
+        <h3>Overall Activity</h3>
+        {/* <TextCanvas text="Overall Activity"/> */}
 
         <p>&emsp;Based on the reception occupancy from each
           department we have the following live bar graphs:
@@ -75,8 +75,8 @@ export default function Home() {
 
 
       <div className={styles.infoSection}>
-        {/* <h3>Transmissibility</h3> */}
-        <TextCanvas text="Transmissibility"/>
+        <h3>Transmissibility</h3>
+        {/* <TextCanvas text="Transmissibility"/> */}
 
         <div className={styles.pieChart}>
           <PieChart styles={styles}/>

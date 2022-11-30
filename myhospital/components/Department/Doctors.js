@@ -76,7 +76,7 @@ export default function Doctors({department}){
                 <Slide doc={doc}/>
             </SwiperSlide>
             )
-        })
+        });
     
     return (
         <div className={styles.docbox}>

@@ -45,7 +45,7 @@ export default function Cardiology({user}){
                 objectFit={'cover'} 
                 alt="building"
             />
-            <HeartCanvas/>
+            {/* <HeartCanvas/> */}
 
             <DeptBtns  setIsVROpen={setIsVROpen}/>
             <Activity  department={cardiologyDept}/>

@@ -1,6 +1,6 @@
 import { Suspense, useRef } from 'react'
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { Environment } from '@react-three/drei'
+import { Environment, PerspectiveCamera } from '@react-three/drei'
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import { extend } from '@react-three/fiber'
@@ -73,15 +73,16 @@ export default function HeartCanvas(){
     
     return (
         <div style={{
-            // border: "2px solid red",
-            height: "60vw",
-            width: "60vw",
-            margin: "50px auto",
-            borderRadius: "100%",
-            overflow:'hidden'
+            border: "2px solid red",
+            // height: "60vw",
+            // width: "60vw",
+            // margin: "50px auto",
+            // borderRadius: "100%",
+            // overflow:'hidden'
         }}>
-            <Canvas>
-                <CameraControls/>
+            <Canvas camera={{position: [0, 0, 5]}}>
+                {/* <CameraControls/> */}
+                <PerspectiveCamera makeDefault fov={75} position={[0, 0, 8]}/>
                 <ImportedScene />
                 <PLight/>
             </Canvas>
